@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Usher Gluck</title>
+    <title>HINDERTER!: A Coding Project by Usher Gluck</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,7 @@
     <!-- Nav Section -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/UGLogoInverted.svg" class="d-inline-block" width="25" height="20" >&nbsp;APP NAME</a>
+            <a class="navbar-brand dollar" href="#"><img src="img/UGLogoInverted.svg" class="d-inline-block" width="25" height="20" >&nbsp; HINDERTER!</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,21 +52,86 @@
     <!-- Main Section -->
     <main class="flex-shrink-0">
         <div class="container py-6 px-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+            <h2 class="border-1 border-bottom border-dark"><strong>The Code for <span class="dollar">HINDERTER!</span></strong></h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                            //Call hello world
-                            function helloWorld(){
-                                alert("Hello World")
+                        //get the values from the page
+                        //starts our controller function
+                        function getValues(){
+                            //get the values from the page
+                            let startValue = document.getElementById("startValue").value;
+                            let endValue = document.getElementById("endValue").value;
+                        
+                            //parse to int
+                            startValue = parseInt(startValue);
+                            endValue = parseInt(endValue);
+                        
+                            if(Number.isInteger(startValue) && Number.isInteger(endValue)){
+                                //we call the generateNumbers
+                                numbers = generateNumbers(startValue, endValue);
+                                //we call the displayNumbers
+                                displayNumbers(numbers);
+                            }else{
+                                alert("All input must be numbers.")
                             }
+                        
+                        }
+                        
+                        //generate numbers from startValue to the endValue
+                        //logic function(s)
+                        function generateNumbers(startValue, endValue){
+                            
+                            let numbers = [];
+                        
+                            //we want to get all numbers from start to end
+                            for(let i = startValue; i <= endValue; i++){
+                                numbers.push(i);
+                            }
+                            
+                            return numbers;
+                        }
+                        
+                        //display the numbers and mark even numbers bold
+                        //diplay or view functions
+                        function displayNumbers(numbers){
+                            
+                            let templateRows = "";
+                            
+                            for (let i = 0; i < numbers.length; i++) {
+                                let className = "even"
+                                let number = numbers[i];
+                        
+                                if(number % 2 == 0){
+                                    className = "even"
+                                }else{
+                                    className = "odd"
+                                }
+                                templateRows += `&lt;tr>&lt;td class="${className}">${number}&lt;/td>&lt;/td>`;
+                            }
+                        
+                            document.getElementById("results").innerHTML = templateRows;
+                        }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is Structured in one Function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with the message: "Hello World".</p>
+                    <p class="text-center">The code for the <span class="dollar">Hinderter!</span> app is structured in three functions.</p>
+                    <h4 class="dollar">Hinderter!</h4>
+                    <p>
+                        When the <span class="dollar">Hinderter!</span> button is clicked it calls the first, <code>getValues</code> function, 
+                        which reads and validates the numbers entered by the user. 
+                        Validation ensures that the numbers are integers.
+                    </p>
+                    <p>
+                        Once the program has the start and end values, the second, <code>generateNumbers</code> function is called. 
+                        This function uses a for-loop to add the numbers into an array.
+                    </p>
+                    <p>
+                        When the array is populated, the third and final <code>displayNumbers</code> function runs 
+                        and displays the requested number in the results section. 
+                        This function also uses a for-loop to classify the numbers as even or odd, and display the even numbers in boldface.
+                    </p>
                 </div>
             </div>
         </div>

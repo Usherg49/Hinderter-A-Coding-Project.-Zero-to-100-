@@ -7,6 +7,15 @@
     --my-purple-medium: #8E52CB;
     --my-purple-dark: #5C2599;
 }
+
+.odd{
+    font-weight: 100;
+}
+
+.even{
+    font-weight: bold;
+    font-size: large;
+}
 body{
     color: var(--dark-color);
 }
@@ -64,6 +73,19 @@ code[class*="language-"],
             word-wrap: break-word;
         }
 
+@font-face {
+    font-family: dollarBill;
+    src: url(DollarBill-5EwZ.ttf);
+}
+
+.dollar{
+    font-family: dollarBill;
+    font-size: auto;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0em;
+}
+
 main>.container {
     padding: 60px 15px 0;
     margin-bottom: 5rem;
@@ -73,4 +95,10 @@ main>.container {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+@media screen and (max-width: 400px) {
+    .responsiveicon {
+        font-size: 18vw;
+    }
 }
